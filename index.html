@@ -79,7 +79,7 @@ training &lt;- training[, !(names(training) %in% c(&quot;X&quot;,&quot;user_name
 ))]
 
 set.seed(654798)  # Reproducible data
-inTrain &lt;- createDataPartition(y=training$classe, p=.1, list=F)  # Use small 10% training set for sake of computation time on my slow computer
+inTrain &lt;- createDataPartition(y=training$classe, p=.3, list=F)  # Use small 30% training set for sake of computation time on my slow computer
 train &lt;- training[inTrain,]
 test &lt;- training[-inTrain,]
 
@@ -103,43 +103,43 @@ test$predRight &lt;- pred==test$classe</code></pre>
 <tbody>
 <tr class="odd">
 <td align="left">A</td>
-<td align="right">4854</td>
-<td align="right">235</td>
-<td align="right">25</td>
-<td align="right">34</td>
-<td align="right">13</td>
+<td align="right">3866</td>
+<td align="right">85</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
 <td align="left">B</td>
-<td align="right">91</td>
-<td align="right">2864</td>
-<td align="right">175</td>
-<td align="right">48</td>
-<td align="right">106</td>
+<td align="right">19</td>
+<td align="right">2491</td>
+<td align="right">73</td>
+<td align="right">9</td>
+<td align="right">30</td>
 </tr>
 <tr class="odd">
 <td align="left">C</td>
-<td align="right">58</td>
-<td align="right">209</td>
-<td align="right">2769</td>
-<td align="right">156</td>
-<td align="right">80</td>
+<td align="right">11</td>
+<td align="right">64</td>
+<td align="right">2290</td>
+<td align="right">64</td>
+<td align="right">21</td>
 </tr>
 <tr class="even">
 <td align="left">D</td>
+<td align="right">9</td>
+<td align="right">4</td>
+<td align="right">27</td>
+<td align="right">2159</td>
 <td align="right">10</td>
-<td align="right">54</td>
-<td align="right">92</td>
-<td align="right">2609</td>
-<td align="right">61</td>
 </tr>
 <tr class="odd">
 <td align="left">E</td>
-<td align="right">9</td>
-<td align="right">55</td>
-<td align="right">18</td>
-<td align="right">47</td>
-<td align="right">2986</td>
+<td align="right">1</td>
+<td align="right">13</td>
+<td align="right">1</td>
+<td align="right">17</td>
+<td align="right">2462</td>
 </tr>
 </tbody>
 </table>
@@ -147,7 +147,7 @@ test$predRight &lt;- pred==test$classe</code></pre>
 total_obs = sum(t)
 for(n in 1:nrow(t)) t[n,n] &lt;- 0  # Set diagonals to 0 to find mislabel count
 mislabel_rate = sum(t) / total_obs</code></pre>
-<p>The out-of-sample error rate is 8.93%</p>
+<p>The out-of-sample error rate is 3.39%</p>
 </div>
 </div>
 </div>
